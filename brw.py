@@ -7,7 +7,8 @@ import sys
 # Github:           fatihmert
 # Mail:             fatihmertdogancan@hotmail.com
 # Release:          16.08.2014
-# Version:          0.1 (First)
+# Version:	    0.1 (Release)
+# Version:          0.1.2 (First Update __len__() func.)
 
 class brw:
     def __init__(self,dosya,mod):
@@ -169,6 +170,9 @@ class brw:
 
     def __exit__(self,v1,v2,v3):
         self.obj.close()
+        
+    def __len__(self):
+    	return len(self.obj.read())
 
 
 if __name__ == "__main__":
@@ -179,6 +183,7 @@ if __name__ == "__main__":
             fmdFile.pack('int',112323)
             fmdFile.pack('uint',1112323)
             fmdFile.pack('char[7]',"kapandi")
+            fmdFile.pack('char[15]',"dc4c44dc290a4b41")
         except:
             print sys.exc_info()[:2]
 
@@ -188,6 +193,8 @@ if __name__ == "__main__":
             print fmdOpen.unpack('int') #112323
             print fmdOpen.unpack('int') #1112323
             print fmdOpen.unpack('char[5]') #kapan
+            fmdOpen.getSeek += 2
+            print fmdOpen.unpack('char[%s]'%(fmdOpen.__len__()-fmdOpen.getSeek)) #dc4c44dc290a4b41
         except:
             print sys.exc_info()[:2]
 
