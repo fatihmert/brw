@@ -1,7 +1,6 @@
 #-*- coding: utf-8 -*-
 
 import struct, re
-import sys
 
 # Author:           Fatih Mert DOĞANCAN
 # Github:           fatihmert
@@ -185,7 +184,8 @@ if __name__ == "__main__":
             fmdFile.pack('char[7]',"kapandi")
             fmdFile.pack('char[15]',"dc4c44dc290a4b41")
         except:
-            print sys.exc_info()[:2]
+        	import sys
+        	print sys.exc_info()[:2]
 
     with brw("yeni.fmd","unpack") as fmdOpen:
         try:
@@ -196,7 +196,8 @@ if __name__ == "__main__":
             fmdOpen.getSeek += 2
             print fmdOpen.unpack('char[%s]'%(fmdOpen.__len__())) #dc4c44dc290a4b41
         except:
-            print sys.exc_info()[:2]
+                import sys
+        	print sys.exc_info()[:2]
 
 
 
