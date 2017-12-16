@@ -88,7 +88,7 @@ Belgenin toplam karakter uzunluğunu verir.
 **yeni.exc** dosyamızın içinde 5 karakterlik bir string değer olduğunu bilmediğimizi var sayarsak, 
 
     with brw("yeni.exc","unpack") as ex_open:
-      ex_open.unpack("char[%s]"%(ex_open.__len__())) #eXec!
+      ex_open.unpack("char[%s]"%(len(ex_open))) #eXec!
 
     
 
