@@ -194,7 +194,7 @@ if __name__ == "__main__":
             print fmdOpen.unpack('int') #1112323
             print fmdOpen.unpack('char[5]') #kapan
             fmdOpen.getSeek += 2
-            print fmdOpen.unpack('char[%s]'%(fmdOpen.__len__())) #dc4c44dc290a4b41
+            print fmdOpen.unpack('char[%s]'%(len(fmdOpen))) #dc4c44dc290a4b41
         except:
                 import sys
         	print sys.exc_info()[:2]
